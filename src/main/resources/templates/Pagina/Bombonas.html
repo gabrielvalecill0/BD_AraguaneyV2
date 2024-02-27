@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>SB Admin 2 - Tables</title>
+
+        <!-- Custom fonts for this template -->
+        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+        <!-- Custom styles for this page -->
+        <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    </head>
+
+    <body id="page-top">
+
+        <!-- Page Wrapper -->
+        <div id="wrapper">
+
+            <div th:include="Pagina/AdminTemplates.html::header"></div><!--SIMPLIFICAR HEADER-->
+
+            <div class="container-fluid">
+
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <a class="btn btn-primary" href="/BombonasIngresar">INGRESAR</a>
+                        <a class="btn btn-success" href="/BombonasExcel">EXCEL</a>
+                        <a class="btn btn-danger" href="/BombonasPdf">PDF</a>
+                        <h2 class="m-0 font-weight-bold text-primary">GESTIÒN DE BOMBONAS</h2>          
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style ="color: black;">
+                                <thead>
+                                    <tr> 
+                                        <td colspan="11" style="text-align: center;color: white; background-color: black;">TOTALIZANDO</td>
+                                    </tr>
+                                    <tr style ="color: black;">
+                                        <td colspan="3">TOTAL BOMBONAS</td >
+                                        <td colspan="2">BOMBONAS DE 10KG</td >
+                                        <td colspan="2">BOMBONAS DE 18KG</td >
+                                        <td colspan="2">BOMBONAS DE 43KG</td >
+                                        <td colspan="2">MONTO TOTAL</td >
+                                    </tr>
+                                    <tr style ="color: black;">
+                                        <td colspan="3" th:text = "${totalBombonas}"></td >
+                                        <td colspan="2" th:text = "${kg10}"></td >
+                                        <td colspan="2" th:text = "${kg18}"></td >
+                                        <td colspan="2" th:text = "${kg43}"></td >
+                                        <td colspan="2" th:text = "${montoTotal}"></td >
+                                    </tr>
+                                    <tr> 
+                                        <td colspan="11" style="text-align: center;color: white; background-color: black;">DATOS</td>
+                                    </tr>
+                                    <tr  style ="color: black;">
+                                        <td>ID BOMBONAS</td>
+                                        <td>BOMBONAS A COMPRAR</td>
+                                        <td>10KG</td>
+                                        <td>18KG</td>
+                                        <td>43KG</td>
+                                        <td>EFECTIVO</td>
+                                        <td>REFERENCIA</td>
+                                        <td>MONTO</td>
+                                        <td>CI JEFE</td>
+                                        <td>FECHA</td>
+                                        <th>ACCIONES</th>
+                                    </tr>
+                                </thead>
+                                <tbody  style ="color: black;">
+                                    <tr th:each = "objecto:${objectoListar}"><!-- lista es el nombre del -->
+                                        <!-- objecto creado en la clase controlador -->
+                                        <td th:text = "${objecto.idBombonas}"></td>
+                                        <td th:text = "${objecto.bombonasComprar}"></td>
+                                        <td th:text = "${objecto.kg10}"></td>
+                                        <td th:text = "${objecto.kg18}"></td>
+                                        <td th:text = "${objecto.kg43}"></td>
+                                        <td th:text = "${objecto.efectivo}"></td>
+                                        <td th:text = "${objecto.referencia}"></td>
+                                        <td th:text = "${objecto.monto}"></td>
+                                        <td th:text = "${objecto.jefeFamilia.cedulaJefe}"></td>
+                                        <td th:text = "${objecto.fecha}"></td>
+                                        <td>
+                                            <a th:href="@{/BombonasEditar}+${objecto.idBombonas}" class = "btn btn-warning btn-circle">
+                                                <i class="fas fa-exclamation-triangle"></i>
+                                            </a>
+                                            <a th:href="@{/BombonasEliminar}+${objecto.idBombonas}" class = "btn btn-danger btn-circle">            
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+       <div th:include="Pagina/AdminTemplates.html::footer"></div><!--SIMPLIFICAR FOOTER-->
+    </div>
+    <!-- End of Content Wrapper -->
+
+<!-- Bootstrap core JavaScript-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="js/demo/datatables-demo.js"></script>
+
+</body>
+
+</html>

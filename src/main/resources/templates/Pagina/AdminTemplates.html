@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+    </head>
+
+    <body>
+        <div th:fragment="header">
+        
+            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+                <!-- Sidebar - Brand -->
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                    <div class="sidebar-brand-icon rotate-n-15">
+                        <i class="fas fa-laugh-wink"></i>
+                    </div>
+                    <div class="sidebar-brand-text mx-3">Admin Pro <h3>Service</h3></div>
+                </a>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider my-0">
+
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+
+                <!-- Nav Item - Utilities Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                       aria-expanded="true" aria-controls="collapseUtilities">
+                        <i class="fas fa-fw fa-wrench"></i>
+                        <span>Base De Datos</span>
+                    </a>
+                    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                         data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Registro De Datos</h6>
+                            <a class="collapse-item" href="index">Datos Personales</a>
+                            <a class="collapse-item" href="Enfermos">Enfermos</a>
+                            <a class="collapse-item" href="Discapacitados">Discapacitados</a>
+                            <a class="collapse-item" href="JefeFamilia">Jefes De Familia</a>
+                            <a class="collapse-item" href="Integrantes">Miembros De La Familia</a>
+                            <a class="collapse-item" href="Bolsas">Bolsas Clap</a>
+                            <a class="collapse-item" href="Bombonas">Bombonas</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <!-- End of Sidebar -->
+    </div>
+            
+    <div th:fragment="footer">
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>🔥 Creado por Gabriel Valecillo 👋😁 15/2/2024 </span>
+                </div>
+            </div>
+        </footer>
+        
+    </div>
+        
+</body>
+
+</html>
